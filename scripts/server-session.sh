@@ -3,6 +3,7 @@ set -euo pipefail
 
 # Launch inside tmux, from the project root. Authentication lives outside git.
 export PATH="$HOME/.local/node_modules/.bin:$HOME/.local/bin:$PATH"
+export XDG_CONFIG_HOME="$HOME/.config/hostile-seating-cloudflare"
 export GIT_AUTHOR_NAME=SeanRivardMorton
 export GIT_AUTHOR_EMAIL=15823313+SeanRivardMorton@users.noreply.github.com
 export GIT_COMMITTER_NAME="$GIT_AUTHOR_NAME"
@@ -17,4 +18,4 @@ fi
 
 # This server denies user namespaces; use the trusted non-root project session.
 exec codex --sandbox danger-full-access -C "$PWD" \
-  'Read PRD.md, AGENTS.md, PROGRESS.md and CODEX.md. The implemented prototype is live at https://sit.thunkoid.com and its source is public. Report readiness briefly and then await the operator. Do not edit files, launch extra work, commit, push or redeploy on startup. For subsequent operator requests, work only in this repository, verify changes, keep PROGRESS.md current, and commit/push only when requested. The server has a repo-specific write deploy key; use git push git@github.com:SeanRivardMorton/hostile-seating.git HEAD:main when a push is requested. Cloudflare deployment is currently authenticated on the coordinating laptop, not on this server. Never claim server-side deployment access unless you have verified it.'
+  'Read PRD.md, AGENTS.md, PROGRESS.md and CODEX.md. The implemented prototype is live at https://sit.thunkoid.com and its source is public. Report readiness briefly and then await the operator. Do not edit files, launch extra work, commit, push or redeploy on startup. For subsequent operator requests, work only in this repository, verify changes, keep PROGRESS.md current, and commit/push only when requested. The server has a repo-specific write deploy key; use git push git@github.com:SeanRivardMorton/hostile-seating.git HEAD:main when a push is requested. Cloudflare credentials are outside git in the dedicated XDG_CONFIG_HOME already exported by this script. Server-side deployment has been verified; use pnpm deploy when requested, limited to the hostile-seating Worker and sit.thunkoid.com. Never print or commit credentials. Do not change unrelated services or domain routes.'

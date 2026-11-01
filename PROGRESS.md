@@ -17,3 +17,8 @@
 - First domain check briefly received Cloudflare 1104 during initial route propagation. Subsequent HTTP checks returned 200; the entire deployed-domain browser suite then passed (three tests, 20.7 seconds).
 - The remote server has a repository-specific write deploy key; it cannot access other GitHub repositories through that key.
 - Recorded a real public-site demo with presentation captions and no page errors. FFprobe measured 49.88 seconds; the encoded MP4 is approximately 727 KB. Preview screenshot contains only the app.
+- Synced the verified release to Hetzner, preserving the original agent output in a named git stash. The complete production build and all three browser tests passed there (36.7 seconds).
+- GitHub Actions completed successfully: dependency installation, typecheck, production build and browser suite.
+- Provisioned Cloudflare authentication on Hetzner in a dedicated user configuration directory outside git (credential file mode 0600); verified account access. Server-session.sh selects that directory for future agent deployments.
+- Successfully redeployed the identical verified release directly from Hetzner. Public MP4 playback was checked in a fresh Chromium context: 49.88 seconds, 1280×900, no media error.
+- The preview initially selected port 4174 because the test server was still using 4173. Restarted the preview on loopback port 4173 with strict port selection after the tests completed.

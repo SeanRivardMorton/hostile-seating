@@ -94,7 +94,7 @@ Sharing replays starting settings, not exact floating-point trajectories across 
 ## 9. Delivery and credits
 Build the chair journey first; add couch/pedestal only after it passes. Stop feature additions if the deadline buffer is threatened. README must credit React, Three.js, React Three Fiber, Drei, Rapier, Vite and Cloudflare; note all procedural art and identify any copied code/templates accurately. Use a GitHub noreply author address for new commits. Keep credentials, personal data and private SSH details out of tracked files and demo footage.
 
-## 10. Open operational checks
-- Verify Cloudflare deployment credentials and zone access before promising the live domain.
-- Verify remote Codex credentials; a persistent build process alone is not an autonomous agent.
-- Browser-test the deployed domain, including WASM loading and shared links.
+## 10. Operational checks
+- Cloudflare deployment credentials and zone access verified; the custom domain is live.
+- Remote Codex credentials verified through an actual scene implementation and an interactive tmux handoff.
+- Deployed-domain browser checks passed for physics loading, simulation and shared links.
